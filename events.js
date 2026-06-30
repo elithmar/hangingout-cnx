@@ -1,0 +1,46 @@
+window.eventsData = [
+    {
+        "id": 1782806802,
+        "title": "JAZZ NIGHT UNDER THE STARS",
+        "venue": "The North Gate Jazz Co-op",
+        "time": "9:00 PM",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&q=80&w=800",
+        "attending": 0,
+        "timeStatus": "Tonight"
+    },
+    {
+        "id": 1,
+        "title": "OPEN MIC NIGHT",
+        "venue": "The Riverside Bar",
+        "time": "8:00 PM",
+        "category": "Live Music",
+        "type": "music",
+        "imageUrl": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=800",
+        "attending": 78,
+        "timeStatus": "1 hr left"
+    },
+    {
+        "id": 2,
+        "title": "MUAY THAI CLASS",
+        "venue": "Lanna Fight Gym",
+        "time": "7:00 PM",
+        "category": "Workout",
+        "type": "workout",
+        "imageUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800",
+        "attending": 55,
+        "timeStatus": "Starts in 2 hr"
+    },
+    {
+        "id": 3,
+        "title": "ART & CRAFT FAIR",
+        "venue": "One Nimman",
+        "time": "4:30 PM",
+        "category": "Cultural",
+        "type": "culture",
+        "imageUrl": "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&q=80&w=800",
+        "attending": 112,
+        "timeStatus": "Today"
+    }
+];
