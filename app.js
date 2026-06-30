@@ -1,4 +1,5 @@
 let mockEvents = [];
+let currentFilter = 'All';
 
 function fetchEvents() {
     mockEvents = window.eventsData || [];
@@ -9,7 +10,24 @@ function renderEvents() {
     const feed = document.getElementById('event-feed');
     feed.innerHTML = ''; // Clear existing
 
-    mockEvents.forEach(event => {
+    // Filtrar los eventos seg√∫n la pesta√±a seleccionada
+    const filteredEvents = currentFilter === 'All' 
+        ? mockEvents 
+        : mockEvents.filter(event => {
+            // Comparamos el texto del filtro con la categor√≠a o tipo
+            const filterText = currentFilter.toLowerCase();
+            return event.category.toLowerCase().includes(filterText) || 
+                   event.type.toLowerCase().includes(filterText) ||
+                   (filterText === 'live music' && event.type === 'music') ||
+                   (filterText === 'art' && event.type === 'culture');
+        });
+
+    if (filteredEvents.length === 0) {
+        feed.innerHTML = '<div style="text-align:center; padding:40px; color:var(--text-muted);">No hay eventos de este tipo hoy.</div>';
+        return;
+    }
+
+    filteredEvents.forEach(event => {
         const card = document.createElement('div');
         card.className = `event-card ${event.type}`;
         
@@ -38,9 +56,6 @@ function setDateHeader() {
     const dateHeader = document.getElementById('current-date');
     const options = { weekday: 'short', day: 'numeric', month: 'short' };
     const dateString = new Date().toLocaleDateString('en-US', options).toUpperCase();
-    
-    // Instead of completely overwriting, we just set the text, but the mockup says "Today's Free Events"
-    // So we can keep it as is or change it dynamically. For now, let's just leave "Today's Free Events".
 }
 
 // Filter interaction
@@ -53,11 +68,13 @@ function initFilters() {
             // Add to clicked
             chip.classList.add('active');
             
-            // In a real app, this would filter the array and call renderEvents()
-            // For now, let's just add a quick animation to the feed to simulate loading
+            // Actualizar filtro y re-renderizar
+            currentFilter = chip.innerText;
+            
             const feed = document.getElementById('event-feed');
             feed.style.opacity = '0.5';
             setTimeout(() => {
+                renderEvents();
                 feed.style.opacity = '1';
             }, 300);
         });
