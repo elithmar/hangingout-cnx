@@ -17,7 +17,7 @@ function renderEvents() {
             const typ = (event.type || '').toLowerCase();
             let filterText = currentFilter.toLowerCase();
             
-            // Arreglar plurales y mapeos espec√≠ficos
+            // Arreglar plurales y mapeos específicos
             if (filterText === 'workouts') filterText = 'workout';
             if (filterText === 'art') filterText = 'culture';
             
